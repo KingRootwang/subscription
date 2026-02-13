@@ -1,9 +1,10 @@
 name: build_release
 
-on: workflow_dispatch:
-    push:
-      branches:
-        - custom
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - custom
 
 permissions:
   contents: write
