@@ -19,8 +19,8 @@ apps.forEach((appConfig) => {
 });
 
 export default defineGkdSubscription({
-  id: 86,
-  name: '奥怪的GKD订阅',
+  id: 114,
+  name: 'Fork of 奥怪的GKD订阅',
   version: 0,
   author: 'aoguai',
   checkUpdateUrl: './gkd.version.json5',
