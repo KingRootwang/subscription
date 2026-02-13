@@ -125,7 +125,7 @@ export default defineGkdApp({
           fastQuery: true,
           activityIds:
             'com.google.android.apps.youtube.app.watchwhile.MainActivity',
-          matches: '@[clickable=true] > [text="关闭"]',
+          matches: '@[clickable=true] > [text="关闭" || text="Dismiss"]',
           snapshotUrls: 'https://i.gkd.li/i/23772979',
         },
       ],
