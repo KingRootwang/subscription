@@ -3,7 +3,6 @@ name: build_release
 on: workflow_dispatch
 
 permissions:
-  id-token: write
   contents: write
 
 jobs:
@@ -19,7 +18,6 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 24
-          registry-url: 'https://registry.npmjs.org'
 
       - uses: pnpm/action-setup@v4
 
@@ -59,16 +57,3 @@ jobs:
           tag_name: v${{ steps.version.outputs.version }}
           name: Release ${{ steps.version.outputs.version }}
           body_path: ./dist/CHANGELOG.md
-
-      - name: Publish package
-        if: ${{ steps.commit.outcome == 'success' }}
-        run: |
-          node -e "import('@gkd-kit/tools').then((m) => m.updatePkgVersion());"
-          pnpm publish --no-git-checks
-          node -e "import('@gkd-kit/tools').then((m) => m.syncNpmmirror());"
-
-      - name: sync jsDelivr
-        if: ${{ steps.commit.outcome == 'success' }}
-        run: |
-          curl -X PUT 'https://purge.jsdelivr.net/gh/aoguai/subscription@custom/dist/aoguai_gkd.json5'
-          curl -X PUT 'https://purge.jsdelivr.net/gh/aoguai/subscription@custom/dist/aoguai_gkd.version.json5'
