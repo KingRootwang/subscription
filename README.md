@@ -1,5 +1,7 @@
 # @aoguai/subscription
 
+test
+
 此仓库由 aoguai 维护，提供 GKD 第三方订阅规则。
 
 ✨避免臃肿冗余耗电，提供更**全面**的订阅体验✨
